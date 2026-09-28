@@ -1,0 +1,35 @@
+name: Sirius v2 integration probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - v2-sirius-ci
+
+permissions:
+  contents: read
+  packages: read
+
+concurrency:
+  group: sirius-v2-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: duckdb/extension-ci-tools/.github/workflows/build.yml@20bad04ce694ea3f4052efb51c1a177dc9891bfd
+    with:
+      duckdb_version: v2.0-cyanoptera
+      duckdb_commit: ${{ github.sha }}
+      duckdb_repository: ${{ github.repository }}
+      extension_repository: duckdb/extension-template
+      extension_ref: main
+      ci_tools_version: 20bad04ce694ea3f4052efb51c1a177dc9891bfd
+      image_version: 20260923-ade72a46
+      groups: |
+        sirius:
+          config: duckdb/.github/config/extensions/sirius.cmake
+          toolchain: cuda
+      exclude_archs: linux_arm64;linux_amd64_musl;linux_arm64_musl;osx_amd64;osx_arm64;windows_amd64;windows_arm64;windows_amd64_mingw;windows_amd64_rtools;wasm_mvp;wasm_eh;wasm_threads
+      reduced_ci_mode: disabled
+      skip_tests: true
+      save_cache: false
