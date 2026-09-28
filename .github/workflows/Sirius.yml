@@ -16,19 +16,20 @@ concurrency:
 
 jobs:
   build:
-    uses: duckdb/extension-ci-tools/.github/workflows/build.yml@20bad04ce694ea3f4052efb51c1a177dc9891bfd
+    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@e11ed26f96e474a38d698643d3d82c84b99ebc2e
     with:
       duckdb_version: v2.0-cyanoptera
       duckdb_commit: ${{ github.sha }}
       duckdb_repository: ${{ github.repository }}
       extension_repository: duckdb/extension-template
       extension_ref: main
-      ci_tools_version: 20bad04ce694ea3f4052efb51c1a177dc9891bfd
+      ci_tools_repository: mbrobbel/extension-ci-tools
+      ci_tools_version: e11ed26f96e474a38d698643d3d82c84b99ebc2e
       image_version: 20260923-ade72a46
       groups: |
         sirius:
           config: duckdb/.github/config/extensions/sirius.cmake
-          toolchain: cuda
+          toolchain: cuda13
       exclude_archs: linux_arm64;linux_amd64_musl;linux_arm64_musl;osx_amd64;osx_arm64;windows_amd64;windows_arm64;windows_amd64_mingw;windows_amd64_rtools;wasm_mvp;wasm_eh;wasm_threads
       reduced_ci_mode: disabled
       skip_tests: true
