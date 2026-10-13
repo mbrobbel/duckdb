@@ -757,7 +757,7 @@ function(duckdb_extension_load NAME)
     # Parameter parsing
     set(options DONT_BUILD LOAD_TESTS APPLY_PATCHES)
     set(oneValueArgs SOURCE_DIR INCLUDE_DIR TEST_DIR GIT_URL GIT_TAG SUBMODULES EXTENSION_VERSION LINKED_LIBS)
-    cmake_parse_arguments(duckdb_extension_load "${options}" "${oneValueArgs}" "" ${ARGN})
+    cmake_parse_arguments(PARSE_ARGV 1 duckdb_extension_load "${options}" "${oneValueArgs}" "")
     if("DONT_LINK" IN_LIST duckdb_extension_load_UNPARSED_ARGUMENTS)
         message(FATAL_ERROR "duckdb_extension_load(${NAME} DONT_LINK): DONT_LINK was removed, extensions are only linked when listed with duckdb_extension_statically_link() or STATICALLY_LINK_EXTENSIONS")
     endif()
