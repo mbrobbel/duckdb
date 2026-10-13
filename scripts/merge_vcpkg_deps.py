@@ -35,13 +35,11 @@ for file in sys.argv[1:]:
             else:
                 raise Exception(f"Unknown entry type found in dependencies: '{dep}'")
 
-    if 'vcpkg-configuration' in data:
-        if 'overlay-ports' in data['vcpkg-configuration']:
-            merged_overlay_ports += prefix_overlay_ports_or_triples(data['vcpkg-configuration']['overlay-ports'], file)
-        if 'overlay-triplets' in data['vcpkg-configuration']:
-            merged_overlay_triplets += prefix_overlay_ports_or_triples(
-                data['vcpkg-configuration']['overlay-triplets'], file
-            )
+    config = data.get('configuration', data.get('vcpkg-configuration', {}))
+    if 'overlay-ports' in config:
+        merged_overlay_ports += prefix_overlay_ports_or_triples(config['overlay-ports'], file)
+    if 'overlay-triplets' in config:
+        merged_overlay_triplets += prefix_overlay_ports_or_triples(config['overlay-triplets'], file)
 
 final_deduplicated_deps = list()
 dedup_set = set()
