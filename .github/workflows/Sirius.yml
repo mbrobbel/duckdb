@@ -16,15 +16,17 @@ concurrency:
 
 jobs:
   build:
-    uses: duckdb/extension-ci-tools/.github/workflows/build.yml@a68570fde10384547868301a12327d5c67909527
+    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@df99a32a6898f0162101fefeebbec8f5bea7cadd
     with:
       duckdb_version: v2.0-cyanoptera
       duckdb_commit: ${{ github.sha }}
       duckdb_repository: ${{ github.repository }}
       extension_repository: duckdb/extension-template
       extension_ref: main
-      ci_tools_repository: duckdb/extension-ci-tools
-      ci_tools_version: a68570fde10384547868301a12327d5c67909527
+      ci_tools_repository: mbrobbel/extension-ci-tools
+      ci_tools_version: df99a32a6898f0162101fefeebbec8f5bea7cadd
+      cuda12_archs: "75-real;80-real;86-real;89-real;90a-real"
+      cuda13_archs: "75-real;80-real;86-real;89-real;90a-real;100f-real;120a-real;120"
       image_version: 20260923-ade72a46
       groups: |
         cuda12:
