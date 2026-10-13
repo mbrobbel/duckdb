@@ -16,15 +16,15 @@ concurrency:
 
 jobs:
   build:
-    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@e11ed26f96e474a38d698643d3d82c84b99ebc2e
+    uses: duckdb/extension-ci-tools/.github/workflows/build.yml@a68570fde10384547868301a12327d5c67909527
     with:
       duckdb_version: v2.0-cyanoptera
       duckdb_commit: ${{ github.sha }}
       duckdb_repository: ${{ github.repository }}
       extension_repository: duckdb/extension-template
       extension_ref: main
-      ci_tools_repository: mbrobbel/extension-ci-tools
-      ci_tools_version: e11ed26f96e474a38d698643d3d82c84b99ebc2e
+      ci_tools_repository: duckdb/extension-ci-tools
+      ci_tools_version: a68570fde10384547868301a12327d5c67909527
       image_version: 20260923-ade72a46
       groups: |
         sirius:

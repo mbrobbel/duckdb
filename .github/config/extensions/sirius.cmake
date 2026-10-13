@@ -1,8 +1,9 @@
 duckdb_extension_load(sirius
-    DONT_LINK LOAD_TESTS
+    LOAD_TESTS
     GIT_URL https://github.com/mbrobbel/sirius
-    GIT_TAG dcdff6e6e898826872df6931545e8cc89192650c
-    INCLUDE_DIR src
-    TEST_DIR test/sql
+    GIT_TAG b917b0a3939d675a402089e2f6cda2961638cb2f
+    SOURCE_DIR sirius-duckdb
+    INCLUDE_DIR sirius-duckdb/src/include
+    TEST_DIR sirius-duckdb/test/sql
     SUBMODULES "duckdb;cucascade;substrait"
 )
