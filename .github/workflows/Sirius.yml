@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@db7f785ec9bee967e4a7bef4b7c5cbe1c54ffae3
+    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@eb5848529b7bf1a46e8a2254f42a508912eef455
     with:
       duckdb_version: v2.0-cyanoptera
       duckdb_commit: ${{ github.sha }}
@@ -24,7 +24,7 @@ jobs:
       extension_repository: duckdb/extension-template
       extension_ref: main
       ci_tools_repository: mbrobbel/extension-ci-tools
-      ci_tools_version: db7f785ec9bee967e4a7bef4b7c5cbe1c54ffae3
+      ci_tools_version: eb5848529b7bf1a46e8a2254f42a508912eef455
       cuda_archs: |
         {
           "cuda12": "75-real;80-real;86-real;89-real;90a-real",
@@ -35,11 +35,13 @@ jobs:
         cuda12:
           config: duckdb/.github/config/extensions/sirius_cuda12.cmake
           toolchain: cuda12
+          extra_toolchains: rust
         cuda13:
           config:
             - duckdb/.github/config/extensions/sirius.cmake
             - duckdb/.github/config/extensions/sirius_cuda13.cmake
           toolchain: cuda13
+          extra_toolchains: rust
       exclude_archs: linux_amd64_musl;linux_arm64_musl;osx_amd64;osx_arm64;windows_amd64;windows_arm64;windows_amd64_mingw;windows_amd64_rtools;wasm_mvp;wasm_eh;wasm_threads
       reduced_ci_mode: disabled
       skip_tests: true
