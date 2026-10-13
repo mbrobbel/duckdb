@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@eb5848529b7bf1a46e8a2254f42a508912eef455
+    uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@2a89736add9cf3c4df748cd988836426cfc90330
     with:
       duckdb_version: v2.0-cyanoptera
       duckdb_commit: ${{ github.sha }}
@@ -24,7 +24,7 @@ jobs:
       extension_repository: duckdb/extension-template
       extension_ref: main
       ci_tools_repository: mbrobbel/extension-ci-tools
-      ci_tools_version: eb5848529b7bf1a46e8a2254f42a508912eef455
+      ci_tools_version: 2a89736add9cf3c4df748cd988836426cfc90330
       cuda_archs: |
         {
           "cuda12": "75-real;80-real;86-real;89-real;90a-real",
