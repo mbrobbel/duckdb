@@ -1,6 +1,6 @@
 duckdb_extension_load(sirius
-    GIT_URL https://github.com/mbrobbel/sirius
-    GIT_TAG faec9d71ae9aba2664acc44c69ae19784c1ca59d
+    GIT_URL https://github.com/sirius-db/sirius
+    GIT_TAG 1493e00ba9021dc383f82b4c584cb13ee07bc306
     SOURCE_DIR sirius-duckdb/loader
     INCLUDE_DIR sirius-duckdb/loader/src
     SUBMODULES ""
