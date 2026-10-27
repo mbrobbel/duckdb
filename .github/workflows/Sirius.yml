@@ -18,7 +18,7 @@ jobs:
   build:
     uses: mbrobbel/extension-ci-tools/.github/workflows/build.yml@274689967c9552179f1032fdae4e4bd5ec6e3db0
     with:
-      duckdb_version: v2.0-cyanoptera
+      duckdb_version: v2.0.0
       duckdb_commit: ${{ github.sha }}
       duckdb_repository: ${{ github.repository }}
       extension_repository: duckdb/extension-template
